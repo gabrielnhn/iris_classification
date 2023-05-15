@@ -13,20 +13,6 @@ feats = iris["feature_names"]
 data = iris["data"]
 targets = iris["target"]
 
-
-
-# General Summary
-# for feat in range(len(feats)):
-#     feat_list = data[:, feat]
-
-#     # print(feat_list)
-#     print(f"{feats[feat]}:")
-#     print(f"\tAverage:{statistics.mean(feat_list)}")
-#     print(f"\tMode:{statistics.mode(feat_list)}")
-#     print(f"\tVariance:{statistics.variance(feat_list)}")
-#     print()
-
-
 data_per_class = {species[i]:[] for i in range(3)}
 for i, a in enumerate(data):
     data_per_class[species[targets[i]]].append(a)
@@ -50,35 +36,25 @@ for i, specie in enumerate(species):
         print(f"\t\tVariance:{statistics.variance(feat_list)}")
         print()
 
-        data_per_class[specie]["avg"] = statistics.mean(feat_list)
-        data_per_class[specie]["mode"] = statistics.mode(feat_list)
-        data_per_class[specie]["variance"] = statistics.variance(feat_list)
 
+for i, s in enumerate(species):
+    this_species = data_per_class[s]["data"]
 
-labels = species
-# Extract the labels and values from the dictionary
-averages = [data_per_class[label]["avg"] for label in labels]
-modes = [data_per_class[label]["mode"] for label in labels]
-variances = [data_per_class[label]["variance"] for label in labels]
+    sepal_width = this_species[:, 1]
+    sepal_len = this_species[:, 0]
+    # Create a bar plot
+    # fig = plt.figure()
 
-# Create a bar plot
-x = range(len(labels))
-width = 0.25
-fig, ax = plt.subplots()
-ax.bar(x, averages, width, label='Average')
-ax.bar(x, modes, width, label='Mode')
-ax.bar(x, variances, width, label='Variance')
+    plt.title(s.title())
 
-# Set labels and title
-ax.set_xlabel('Classes')
-ax.set_ylabel('Values')
-ax.set_title('Summary Statistics per Class')
-ax.set_xticks(x)
-ax.set_xticklabels(labels)
-ax.legend()
+    plt.xlabel("Sepal Width")
+    plt.ylabel("Sepal Length")
 
-# Show the plot
-plt.show()
+    colors = "red", "green", "blue"
+    plt.scatter(sepal_width, sepal_len, color=colors[i])
+
+    # Show the plot
+    plt.show()
 
     # fig = plt.figure()
     # plt.title('Gaze angular error')
