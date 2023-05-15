@@ -57,7 +57,8 @@ for i, s in enumerate(species):
     # plt.savefig(f"{s}_petal.png", dpi=150)
     # plt.show()
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig("ALLSEPALS.png", dpi=200)
 
 
 
@@ -81,4 +82,5 @@ for i, s in enumerate(species):
     # plt.savefig(f"{s}_petal.png", dpi=150)
     # plt.show()
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig("ALLPETALS.png", dpi=200)

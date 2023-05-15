@@ -40,8 +40,8 @@ print(out)
 # x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
 # x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
 
-x1_min, x1_max = 0,8
-x2_min, x2_max = 0, 3
+x1_min, x1_max = 0,10
+x2_min, x2_max = 0, 4
 
 xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, 0.1),
                        np.arange(x2_min, x2_max, 0.1))
@@ -90,7 +90,8 @@ for i, s in enumerate(species):
     # plt.savefig(f"{s}_petal.png", dpi=150)
     # plt.show()
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig("PETAL_KNN.png", dpi=200)
 # In this example, we generate a synthetic classification dataset using make_classification and split it into training and testing sets. We train a support vector classifier (SVC) with a linear kernel on the training data. We define a range of feature values and create a grid of points using np.meshgrid. The model is then used to predict the class labels for the grid points, and a contour plot is created using plt.contourf to visualize the decision boundary. Finally, we scatter plot the original data points and display the plot using plt.show(). You can customize the code according to your specific dataset and model.
 
 
