@@ -41,7 +41,7 @@ for i, specie in enumerate(species):
     this_species = data_per_class[specie]["data"]
 
     for feat in range(len(feats)):
-        print(feat)
+        # print(feat)
         feat_list = this_species[:, feat]
         # print(feat_list)
         print(f"\t{feats[feat]}:")
@@ -53,39 +53,3 @@ for i, specie in enumerate(species):
         data_per_class[specie]["avg"] = statistics.mean(feat_list)
         data_per_class[specie]["mode"] = statistics.mode(feat_list)
         data_per_class[specie]["variance"] = statistics.variance(feat_list)
-
-
-labels = species
-# Extract the labels and values from the dictionary
-averages = [data_per_class[label]["avg"] for label in labels]
-modes = [data_per_class[label]["mode"] for label in labels]
-variances = [data_per_class[label]["variance"] for label in labels]
-
-# Create a bar plot
-x = range(len(labels))
-width = 0.25
-fig, ax = plt.subplots()
-ax.bar(x, averages, width, label='Average')
-ax.bar(x, modes, width, label='Mode')
-ax.bar(x, variances, width, label='Variance')
-
-# Set labels and title
-ax.set_xlabel('Classes')
-ax.set_ylabel('Values')
-ax.set_title('Summary Statistics per Class')
-ax.set_xticks(x)
-ax.set_xticklabels(labels)
-ax.legend()
-
-# Show the plot
-plt.show()
-
-    # fig = plt.figure()
-    # plt.title('Gaze angular error')
-#     plt.plot(epoch_list, avg_MAE_test, color='b', label='test')
-#     plt.plot(epoch_list, avg_MAE_val, color='g', label='val')
-
-#     plt.legend()
-#     # plt.locator_params(axis='x', nbins=30)
-
-#     fig.savefig(os.path.join(evalpath,data_set+".png"), format='png')
